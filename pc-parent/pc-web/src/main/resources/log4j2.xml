@@ -1,0 +1,46 @@
+<Configuration status="WARN" monitorInterval="300">
+	<properties>
+		<property name="LOG_HOME">/usr/aoehang/logs</property>
+		<property name="ALL_LOG_NAME">aoehang-all</property>
+		<property name="ERROR_LOG_NAME">aoehang-error</property>
+		<property name="LOG_LEVEL">INFO</property>
+	</properties>
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout
+				pattern="%d{yyyy-MM-dd HH:mm:ss:SSS} %-5level %class{36} %M %L - %msg%xEx%n" />
+		</Console>
+
+		<RollingFile name="AllLog" fileName="${LOG_HOME}/${ALL_LOG_NAME}.log"
+			filePattern="${LOG_HOME}/$${date:yyyy-MM}/${ALL_LOG_NAME}-%d{yyyy-MM-dd}-%i.log.gz">
+			<Filters>
+				<ThresholdFilter level="DEBUG" />
+			</Filters>
+			<PatternLayout
+				pattern="%d{yyyy-MM-dd HH:mm:ss:SSS} %-5level %class{36} %M %L - %msg%xEx%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="100MB" />
+			</Policies>
+		</RollingFile>
+
+		<RollingFile name="ErrorLog" fileName="${LOG_HOME}/${ERROR_LOG_NAME}.log"
+			filePattern="${LOG_HOME}/$${date:yyyy-MM}/${ERROR_LOG_NAME}-%d{yyyy-MM-dd}-%i.log.gz">
+			<ThresholdFilter level="ERROR" />
+			<PatternLayout
+				pattern="%d{yyyy-MM-dd HH:mm:ss:SSS} %-5level %class{36} %M %L - %msg%xEx%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="100MB" />
+			</Policies>
+		</RollingFile>
+	</Appenders>
+
+	<Loggers>
+		<Root level="${LOG_LEVEL}">
+			<AppenderRef ref="Console" />
+			<AppenderRef ref="AllLog" />
+			<AppenderRef ref="ErrorLog" />
+		</Root>
+	</Loggers>
+</Configuration>
