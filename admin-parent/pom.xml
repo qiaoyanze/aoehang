@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.aoehang</groupId>
-	<artifactId>pc-parent</artifactId>
+	<artifactId>admin-parent</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-	<name>pc-parent</name>
+	<name>admin-parent</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
@@ -219,6 +219,6 @@
 		</plugins>
 	</build>
 	<modules>
-		<module>pc-web</module>
+		<module>admin-web</module>
 	</modules>
 </project>

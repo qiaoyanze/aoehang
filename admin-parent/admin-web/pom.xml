@@ -5,14 +5,14 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.aoehang</groupId>
-		<artifactId>pc-parent</artifactId>
+		<artifactId>admin-parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>pc-web</artifactId>
+	<artifactId>admin-web</artifactId>
 	<packaging>war</packaging>
 
-	<name>pc-web Maven Webapp</name>
+	<name>admin-web Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 
 	<build>
